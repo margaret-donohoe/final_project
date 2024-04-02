@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Shoot",
+                    "name": "Fire1",
                     "type": "Button",
                     "id": "0dcf789c-bd59-4103-8c05-b0560087be63",
                     "expectedControlType": "Button",
@@ -271,7 +271,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Shoot",
+                    "action": "Fire1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -282,7 +282,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Shoot",
+                    "action": "Fire1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

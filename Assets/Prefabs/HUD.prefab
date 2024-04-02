@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6c0fdcf085549e182ded27d20b3021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: {fileID: 0}
-  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 4882929164811355468}
+  dialoguePanel: {fileID: 6716323408504023924}
   starterAssetsInputs: {fileID: 0}
   choices: []
   choicesText: []
