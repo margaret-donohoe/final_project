@@ -1,4 +1,4 @@
-
+using System.Collections;
 using UnityEngine;
 using StarterAssets;
 
@@ -10,7 +10,9 @@ public class Gun : MonoBehaviour
 
     public Camera fpsCam;
     private StarterAssetsInputs starterAssetsInputs;
+
     public ParticleSystem muzzleFlash;
+    public GameObject impactFX;
 
     // Start is called before the first frame update
 
@@ -19,11 +21,11 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 
-    void Shoot()
+    IEnumerator Shoot()
     {
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
@@ -40,7 +42,8 @@ public class Gun : MonoBehaviour
                     hit.rigidbody.AddForce(-hit.normal * impact);
                 }
             }
-
+            yield return new WaitForSeconds(.2f);
+            Instantiate(impactFX, hit.point, Quaternion.LookRotation(hit.normal));
         }
     }
 }
