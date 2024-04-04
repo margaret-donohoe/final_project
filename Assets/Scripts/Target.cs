@@ -1,4 +1,4 @@
-
+using System.Collections;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -11,12 +11,13 @@ public class Target : MonoBehaviour
         health -= amount;
         if(health <=0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    void Die()
+    IEnumerator Die()
     {
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }
