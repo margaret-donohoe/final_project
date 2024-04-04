@@ -10712,6 +10712,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2387651723927357951, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57053727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387651723927357951, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57053727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387651723927357951, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57053727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387651723927357951, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -370.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387651723927357951, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -192.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387651723927357951, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.6607
+      objectReference: {fileID: 0}
     - target: {fileID: 5349662503329757960, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
       propertyPath: player
       value: 
@@ -10728,6 +10752,10 @@ PrefabInstance:
       propertyPath: starterAssetsInputs
       value: 
       objectReference: {fileID: 1297049426}
+    - target: {fileID: 6848966178792755267, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8668935106262845655, guid: 65bebd30eb4a54147ab11dac814bdd76, type: 3}
       propertyPath: m_Name
       value: HUD
