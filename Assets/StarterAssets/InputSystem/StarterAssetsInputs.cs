@@ -17,6 +17,8 @@ namespace StarterAssets
 		public bool hide;
 		public bool pickUp;
 		public bool drop;
+		public bool up;
+		public bool down;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -66,12 +68,22 @@ namespace StarterAssets
 
 		public void OnPickUp(InputValue value)
 		{
-			UpInput(value.isPressed);
+			pUpInput(value.isPressed);
 		}
 
 		public void OnDrop(InputValue value)
 		{
 			DropInput(value.isPressed);
+		}
+
+		public void OnUp(InputValue value)
+		{
+			UpInput(value.isPressed);
+		}
+
+		public void OnDown(InputValue value)
+		{
+			DownInput(value.isPressed);
 		}
 #endif
 
@@ -111,14 +123,24 @@ namespace StarterAssets
 			hide = newHideState;
 		}
 
-		public void UpInput(bool newPickUpState)
+		public void pUpInput(bool newPickUpState)
 		{
 			pickUp = newPickUpState;
 		}
 
-		public void DropInput(bool newDownState)
+		public void DropInput(bool newdDownState)
 		{
-			drop = newDownState;
+			drop = newdDownState;
+		}
+
+		public void UpInput(bool newPickUpState)
+		{
+			up = newPickUpState;
+		}
+
+		public void DownInput(bool newDownState)
+		{
+			down = newDownState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

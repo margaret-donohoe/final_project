@@ -11,7 +11,11 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public static DialogueManager Instance;
     public GameObject dialoguePanel;
-    public Story currentStory;
+    public TextAsset inkJSON;
+    private Story story;
+
+    private Memory currentMemory;
+    private string currentKnot;
 
     public bool dialogueIsPlaying { get; private set; }
     public StarterAssetsInputs starterAssetsInputs;
@@ -33,8 +37,10 @@ public class DialogueManager : MonoBehaviour
 
     public void Start()
     {
+        story = new Story(inkJSON.text);
+
         dialogueIsPlaying = false;
-        //dialoguePanel.SetActive(false);
+        dialoguePanel.SetActive(false);
 
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
@@ -43,39 +49,46 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+        Debug.Log(story.Continue());
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<Memory>() != null)
+        {
+            currentMemory = collision.gameObject.GetComponent<Memory>();
+            currentKnot = currentMemory.SetKnot(currentMemory.GetKnot());
+            story.ChoosePathString(currentKnot);
+            //Debug.Log(story.Continue()); DOES NOT WORK!!!
+        }
     }
 
     public void Update()
     {
-        if (starterAssetsInputs.submit)
+        if (starterAssetsInputs.submit && dialogueIsPlaying == false)
         {
+            
             ContinueStory();
             starterAssetsInputs.submit = false;
+        }
+
+        if (starterAssetsInputs.up)
+        {
+            
+        }
+
+        if (starterAssetsInputs.down)
+        {
+
         }
     }
 
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
-        currentStory = new Story(inkJSON.text);
+        story = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
-
-        //Function that an be called from an inky story!
-        currentStory.BindExternalFunction("changePanelColor", (string colorToChangeTo) => {
-            if (colorToChangeTo == "Black")
-            {
-                dialoguePanel.GetComponent<Image>().color = new Color(0, 0, 0, 0.5f);
-            }
-            else if (colorToChangeTo == "Red")
-            {
-                dialoguePanel.GetComponent<Image>().color = new Color(1, 0, 0, 0.5f);
-            }
-            else
-            {
-                dialoguePanel.GetComponent<Image>().color = new Color(0, 1, 0, 0.5f);
-            }
-        });
 
         ContinueStory();
     }
@@ -92,9 +105,9 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueStory()
     {
-        if (currentStory.canContinue)
+        if (story.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            dialogueText.text = story.Continue();
             DisplayChoices();
         }
         else
@@ -105,7 +118,7 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayChoices()
     {
-        List<Choice> currentChoices = currentStory.currentChoices;
+        List<Choice> currentChoices = story.currentChoices;
         if (currentChoices.Count > choices.Length)
         {
             Debug.LogError("More choices were given than the UI can support. Number of choices given: " + currentChoices.Count);
@@ -127,6 +140,6 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        currentStory.ChooseChoiceIndex(choiceIndex);
+        story.ChooseChoiceIndex(choiceIndex);
     }
 }
