@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using StarterAssets;
+using System.Collections.Generic;
 
 public class Gun : MonoBehaviour
 {
@@ -14,9 +15,8 @@ public class Gun : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public GameObject impactFX;
 
-    // Start is called before the first frame update
+    public Target target;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -34,7 +34,8 @@ public class Gun : MonoBehaviour
             Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
 
-            if(target != null)
+
+            if (target != null)
             {
                 target.TakeDamage(damage);
                 if (hit.rigidbody != null)
