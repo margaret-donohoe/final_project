@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     private Story story;
 
     private Memory currentMemory;
-    public string currentKnot;
+    private string currentKnot;
 
     public bool dialogueIsPlaying { get; private set; }
     public StarterAssetsInputs starterAssetsInputs;
@@ -67,6 +67,7 @@ public class DialogueManager : MonoBehaviour
         if (starterAssetsInputs.submit && dialogueIsPlaying == false)
         {
             Debug.Log(story.Continue());
+            EnterDialogueMode();
             //ContinueStory();
             starterAssetsInputs.submit = false;
         }
@@ -83,7 +84,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode()
     {
         story = new Story(inkJSON.text);
         dialogueIsPlaying = true;
