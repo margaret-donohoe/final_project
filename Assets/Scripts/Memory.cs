@@ -10,23 +10,24 @@ public class Memory : MonoBehaviour
     void Start()
     {
         n = gameObject.name;
-        k = SetKnot(n);
+        SetKnot(n);
     }
 
     // Update is called once per frame
-    public string SetKnot(string name)
+    public void SetKnot(string name)
     {
         string knot;
+
         if(name == "nurse")
         {
-            knot = "talk_to_nurse";
+            knot = "enter";
         }
         else
         {
             knot = "";
         }
 
-        return knot;
+        k = knot;
     }
 
     public string GetKnot()

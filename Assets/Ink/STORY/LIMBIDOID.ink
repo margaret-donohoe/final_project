@@ -16,8 +16,9 @@ You stand in a black void, { level ==1: holding a shotgun, }with nothing before 
 
 === levelOne ===
 The room beyond the doorway appears to be a hospital nursery. It is empty, and so are all of the cradles within it, save for one which bleeds a sort of goopy darkness. You search for the patient informtion slip, but find that every line is redacted. The cradle's darkness leads to an office on the other side of the room.
-*[Enter the office.]
+*[Enter the office.] -> enter
 
+=== enter ===
 - You enter the office, and within the new room stands a creature made entirely of eyes. They wear ill-fitting scrubs, which serve as poor coverage for their sickly form.
 *[Ask the creature where you are.] -> talk_to_nurse
 *[Attack.] -> attack_nurse

@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     private Story story;
 
     private Memory currentMemory;
-    private string currentKnot;
+    public string currentKnot;
 
     public bool dialogueIsPlaying { get; private set; }
     public StarterAssetsInputs starterAssetsInputs;
@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
-        Debug.Log(story.Continue());
+        //Debug.Log(story.Continue());
     }
 
     void OnTriggerEnter(Collider collision)
@@ -57,9 +57,8 @@ public class DialogueManager : MonoBehaviour
         if (collision.gameObject.GetComponent<Memory>() != null)
         {
             currentMemory = collision.gameObject.GetComponent<Memory>();
-            currentKnot = currentMemory.SetKnot(currentMemory.GetKnot());
+            currentKnot = currentMemory.GetKnot();
             story.ChoosePathString(currentKnot);
-            //Debug.Log(story.Continue()); DOES NOT WORK!!!
         }
     }
 
@@ -67,8 +66,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (starterAssetsInputs.submit && dialogueIsPlaying == false)
         {
-            
-            ContinueStory();
+            Debug.Log(story.Continue());
+            //ContinueStory();
             starterAssetsInputs.submit = false;
         }
 
