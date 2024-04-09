@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Target : MonoBehaviour
 {
     public float health = 50;
-
+    public Image healthBar;
 
     public void TakeDamage(float amount)
     {
