@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
     public GameObject impactFX;
+    public ParticleSystem bulletFX;
 
     public Target target;
 
@@ -31,6 +32,7 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             muzzleFlash.Play();
+            bulletFX.Play();
             Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
 
