@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using StarterAssets;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,14 +18,27 @@ public class DialogueManager : MonoBehaviour
     private Memory currentMemory;
     private string currentKnot;
 
+    //public InputAction pressUp;
+    //public InputAction pressDown;
+
     public bool dialogueIsPlaying { get; private set; }
+    private bool dialogueJustPlayed = false;
     public StarterAssetsInputs starterAssetsInputs;
     public GameObject[] choices;
     public TextMeshProUGUI[] choicesText;
     [SerializeField] private CharacterController player;
 
+    private Color chosen = new Color(1, 1, 1, 0.65f);
+    private Color notChosen = new Color(1, 1, 1, 0.3f);
+    private List<Choice> curChoices;
+    private int choiceInd = 0;
+    private Choice playerChoice;
+
     public void Awake()
     {
+        //pressUp = InputSystem.actions.FindAction("up");
+        //pressDown = InputSystem.actions.FindAction("down");
+
         if (Instance == null)
         {
             Instance = this;
@@ -37,6 +51,8 @@ public class DialogueManager : MonoBehaviour
 
     public void Start()
     {
+        //pressUp = starterAssetsInputs.up;
+
         story = new Story(inkJSON.text);
 
         dialogueIsPlaying = false;
@@ -66,41 +82,58 @@ public class DialogueManager : MonoBehaviour
     {
         if (starterAssetsInputs.submit && dialogueIsPlaying == false)
         {
-            Debug.Log(story.Continue());
+            //Debug.Log(story.Continue());
             EnterDialogueMode();
-            //ContinueStory();
             starterAssetsInputs.submit = false;
         }
 
-        if (starterAssetsInputs.up)
+        if (starterAssetsInputs.submit && dialogueIsPlaying == true && curChoices.Count > 0)
         {
-            
+            MakeChoice(choiceInd);
+            ExitDialogueMode();
         }
 
-        if (starterAssetsInputs.down)
+        if (starterAssetsInputs.submit && dialogueIsPlaying == true && curChoices.Count == 0)
         {
+            ContinueStory();
+            ExitDialogueMode();
+        }
 
+        if (starterAssetsInputs.up && choiceInd > 0)
+        {
+            Debug.Log("UP");
+            choiceInd--;
+            ChangeChoice(choiceInd);
+        }
+
+        if (starterAssetsInputs.down && choiceInd < curChoices.Count - 1)
+        {
+            Debug.Log("DOWN");
+            choiceInd++;
+            ChangeChoice(choiceInd);
         }
     }
 
 
     public void EnterDialogueMode()
     {
-        story = new Story(inkJSON.text);
+        //story = new Story(inkJSON.text);
+        choiceInd = 0;
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
-
         ContinueStory();
     }
 
     private void ExitDialogueMode()
     {
+        dialogueJustPlayed = true;
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         player.enabled = true;
         GameObject myEventSystem = GameObject.Find("UI_EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
+        StartCoroutine(StopDialogue());
     }
 
     private void ContinueStory()
@@ -112,23 +145,36 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            ExitDialogueMode();
+            dialoguePanel.SetActive(false);
         }
     }
 
     private void DisplayChoices()
     {
-        List<Choice> currentChoices = story.currentChoices; //POSITION OF PANEL DETERMINED BY NUMBER OF CHOICES!!!
-        if (currentChoices.Count > choices.Length)
+        curChoices = story.currentChoices;
+        if (curChoices.Count > choices.Length)
         {
-            Debug.LogError("More choices were given than the UI can support. Number of choices given: " + currentChoices.Count);
+            Debug.LogError("More choices were given than the UI can support. Number of choices given: " + curChoices.Count);
+        }
+        int index = 0;
+
+        if(curChoices.Count == 0)
+        {
+            choicesText[0].text = "...";
         }
 
-        int index = 0;
-        foreach (Choice choice in currentChoices)
+        foreach (Choice choice in curChoices)
         {
             choices[index].gameObject.SetActive(true);
             choicesText[index].text = choice.text;
+            if (curChoices.IndexOf(choice) == 0)
+            {
+                choicesText[index].GetComponent<TextMeshProUGUI>().color = chosen;
+            }
+            else
+            {
+                choicesText[index].GetComponent<TextMeshProUGUI>().color = notChosen;
+            }
             index++;
         }
 
@@ -141,5 +187,29 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         story.ChooseChoiceIndex(choiceIndex);
+    }
+
+    void ChangeChoice(int cI)
+    {
+        //Debug.Log(cI);
+
+        foreach (Choice choice in curChoices)
+        {
+            if (curChoices.IndexOf(choice) == cI)
+            {
+                choicesText[curChoices.IndexOf(choice)].GetComponent<TextMeshProUGUI>().color = chosen;
+                playerChoice = choice;
+            }
+            else
+            {
+                choicesText[curChoices.IndexOf(choice)].GetComponent<TextMeshProUGUI>().color = notChosen;
+            }
+        }
+        return;
+    }
+    IEnumerator StopDialogue()
+    {
+        yield return new WaitForSeconds(10);
+        dialogueJustPlayed = false;
     }
 }

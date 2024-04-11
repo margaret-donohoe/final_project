@@ -128,14 +128,14 @@ namespace StarterAssets
 			pickUp = newPickUpState;
 		}
 
-		public void DropInput(bool newdDownState)
+		public void DropInput(bool newdDropState)
 		{
-			drop = newdDownState;
+			drop = newdDropState;
 		}
 
-		public void UpInput(bool newPickUpState)
+		public void UpInput(bool newUpState)
 		{
-			up = newPickUpState;
+			up = newUpState;
 		}
 
 		public void DownInput(bool newDownState)

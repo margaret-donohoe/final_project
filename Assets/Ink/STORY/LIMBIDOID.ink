@@ -26,12 +26,12 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     === talk_to_nurse ===
     VAR hasFlashlight = false
     "Where am I?"
-    <i> "The Hospital." </i>
+    * [. . .]
+    - <i> "The Hospital." </i>
     * [Ask where you are meant to go.]
-    "Where should I go?"
     <i> "Out. Back, if you can." </i>
     * [Leave.] 
-    -> nursery_again
+    -> END
     - Not incredibly helpful.
     *[Ask how you get out.]
     "How do I get out?"
@@ -43,7 +43,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
         You attack the nurse, killing them swiftly. Their body melts into a pile of black sludge, with a shiny silver flashlight sitting within it.
         *[Take the flashlight.]
         ~ hasFlashlight = true
-        -> nursery_again
+        -> END
     
     === nursery_again ===
     Returning to the nursery, you are once again drawn towards the dark cradle. 
