@@ -8,12 +8,15 @@ public class Target : MonoBehaviour
     public float maxHealth = 100f;
     public Image healthBar;
     private Transform player;
+    public Animator enemyAnimator;
 
     void Start()
     {
+        enemyAnimator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (player == null)
         {
+            
             Debug.LogError("Player not found.");
         }
     }
@@ -30,10 +33,13 @@ public class Target : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        enemyAnimator.SetTrigger("attack");
+
         health -= amount;
         healthBar.fillAmount = health / maxHealth;
         if (health <=0)
         {
+            enemyAnimator.SetTrigger("die");
             StartCoroutine(Die());
         }
 
@@ -41,7 +47,7 @@ public class Target : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3.5f);
         Destroy(gameObject);
     }
 
