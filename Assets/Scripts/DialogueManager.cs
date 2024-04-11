@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayChoices()
     {
-        List<Choice> currentChoices = story.currentChoices;
+        List<Choice> currentChoices = story.currentChoices; //POSITION OF PANEL DETERMINED BY NUMBER OF CHOICES!!!
         if (currentChoices.Count > choices.Length)
         {
             Debug.LogError("More choices were given than the UI can support. Number of choices given: " + currentChoices.Count);
