@@ -134,14 +134,13 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogueMode()
     {
-        dialogueJustPlayed = true;
+        
         dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
+        //dialoguePanel.SetActive(false);
         dialogueText.text = "";
         player.enabled = true;
         GameObject myEventSystem = GameObject.Find("UI_EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
-        StartCoroutine(StopDialogue());
     }
 
     private void ContinueStory()
@@ -153,8 +152,9 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            //dialogueIsPlaying = false;
+            dialogueJustPlayed = true;
             dialoguePanel.SetActive(false);
+            StartCoroutine(StopDialogue());
         }
         //GameObject myEventSystem = GameObject.Find("UI_EventSystem");
         //myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
