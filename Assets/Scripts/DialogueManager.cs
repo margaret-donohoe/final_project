@@ -101,16 +101,24 @@ public class DialogueManager : MonoBehaviour
 
         if (starterAssetsInputs.up && choiceInd > 0)
         {
-            Debug.Log("UP");
+            //Debug.Log("UP");
             choiceInd--;
             ChangeChoice(choiceInd);
         }
 
         if (starterAssetsInputs.down && choiceInd < curChoices.Count - 1)
         {
-            Debug.Log("DOWN");
+            //Debug.Log("DOWN");
             choiceInd++;
             ChangeChoice(choiceInd);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (story.canContinue == false && dialogueIsPlaying == false)
+        {
+            dialoguePanel.SetActive(false);
         }
     }
 
@@ -145,8 +153,11 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            //dialogueIsPlaying = false;
             dialoguePanel.SetActive(false);
         }
+        //GameObject myEventSystem = GameObject.Find("UI_EventSystem");
+        //myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
     }
 
     private void DisplayChoices()
