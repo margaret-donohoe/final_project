@@ -1,6 +1,0 @@
-WispGUI 1.6.2
-=============
-
-Calendar : Bug fixes.
-Glassmorphism Shader : Now supports masking.
-Smart Creator : Will not open if Game is playing AND focused.
