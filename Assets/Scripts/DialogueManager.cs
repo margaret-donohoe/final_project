@@ -116,9 +116,10 @@ public class DialogueManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (story.canContinue == false && dialogueIsPlaying == false)
+        if (dialogueIsPlaying == false)
         {
             dialoguePanel.SetActive(false);
+            Debug.Log("finish");
         }
     }
 

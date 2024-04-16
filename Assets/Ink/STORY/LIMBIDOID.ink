@@ -30,18 +30,16 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     - <i> "The Hospital." </i>
     * [Ask where you are meant to go.]
     <i> "Out. Back, if you can." </i>
-    * [Leave.] ->END
+    *->END
     *[Ask how you get out.]
     "How do I get out?"
     <i>"Find yourself."</i> With that, the Nurse begins to disappear, and leaves nothing but a pile of black sludge in their wake. 
     -  
-    * [Leave.] -> END
+    *-> END
     
         === attack_nurse ===
         You attack the nurse, killing them swiftly. Their body melts into a pile of black sludge, with a shiny silver flashlight sitting within it.
-        *[Take the flashlight.]
-        ~ hasFlashlight = true
-        -> END
+        *[Take the flashlight.]-> END
     
     === nursery_again ===
     Returning to the nursery, you are once again drawn towards the dark cradle. 
