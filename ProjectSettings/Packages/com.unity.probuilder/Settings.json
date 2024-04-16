@@ -99,8 +99,11 @@
             },
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 0338614 (radar, tutorial)
 =======
 >>>>>>> parent of 0338614 (radar, tutorial)
                 "type": "UnityEngine.ProBuilder.SelectMode, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -150,11 +153,15 @@
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize",
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                 "value": "{\"m_Value\":{\"x\":-976.7274169921875,\"y\":0.0,\"z\":-560.921142578125}}"
 =======
                 "value": "{\"m_Value\":{\"x\":5.851280212402344,\"y\":8.601324081420899,\"z\":-3.0905685424804689}}"
 >>>>>>> Stashed changes
+=======
+                "value": "{\"m_Value\":{\"x\":-976.7274169921875,\"y\":0.0,\"z\":-560.921142578125}}"
+>>>>>>> parent of 0338614 (radar, tutorial)
 =======
                 "value": "{\"m_Value\":{\"x\":-976.7274169921875,\"y\":0.0,\"z\":-560.921142578125}}"
 >>>>>>> parent of 0338614 (radar, tutorial)
