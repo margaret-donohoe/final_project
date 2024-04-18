@@ -261,10 +261,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5866666021909216657, guid: 50561e0f1e2487249aff734a52bb124c, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9408b47376c35ba43af7c944f71d178a, type: 2}
     - target: {fileID: -8679921383154817045, guid: 42abc57710377c449af1d479628ecd78, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.080759
@@ -279,15 +275,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42abc57710377c449af1d479628ecd78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.397531
+      value: -22.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42abc57710377c449af1d479628ecd78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42abc57710377c449af1d479628ecd78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.91
+      value: -62.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42abc57710377c449af1d479628ecd78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -329,6 +325,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9408b47376c35ba43af7c944f71d178a, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 50561e0f1e2487249aff734a52bb124c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9408b47376c35ba43af7c944f71d178a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -345,6 +345,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 42abc57710377c449af1d479628ecd78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4826890090942508445}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 42abc57710377c449af1d479628ecd78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5585827642572543934}
   m_SourcePrefab: {fileID: 100100000, guid: 42abc57710377c449af1d479628ecd78, type: 3}
 --- !u!95 &233711761275530490 stripped
 Animator:
@@ -398,6 +401,8 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 279151752058710855}
   enemyAnimator: {fileID: 233711761275530490}
+  damage: 20
+  playerHealth: {fileID: 0}
 --- !u!54 &4826890090942508445
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -425,3 +430,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5585827642572543934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6815551402147130426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35fd54ac079a8b47aa6549789157333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconPrefab: {fileID: 8306597177441571752, guid: 64491c38b1af452409456a53259a0f43, type: 3}
+  clampOnRadar: 1
