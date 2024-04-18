@@ -9,6 +9,10 @@ public class Tutorial_enemy : MonoBehaviour
     private Color on = new Color(1, 1, 1, 1);
     private Color off = new Color(1, 1, 1, 0);
     private float alpha;
+
+    private bool combatTime = false;
+    public GameObject enemy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +21,9 @@ public class Tutorial_enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && combatTime == false)
         {
+            //combatTime = true;
             StartCoroutine(fadeOn());
         }
     }
@@ -27,6 +32,7 @@ public class Tutorial_enemy : MonoBehaviour
     {
         while(directions.color.a<1)
         {
+            combatTime = true;
             Color fade = new Color(1, 1, 1, alpha + 0.025f);
             alpha = directions.color.a;
             directions.color = fade;
