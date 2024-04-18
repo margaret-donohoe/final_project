@@ -23,7 +23,7 @@ namespace Ilumisoft.RadarSystem
 
         [SerializeField]
         [Tooltip("Whether the radar should apply the roation of the player")]
-        private bool applyRotation = true;
+        private bool applyRotation = false;
 
         /// <summary>
         /// The detection range of the radar

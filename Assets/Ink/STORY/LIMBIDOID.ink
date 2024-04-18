@@ -25,17 +25,13 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 
     === talk_to_nurse ===
     VAR hasFlashlight = false
-    "Where am I?"
-    * [. . .]
     - <i> "The Hospital." </i>
     * [Ask where you are meant to go.]
-    <i> "Out. Back, if you can." </i>
-    *->END
+    -<i> "Out. Back, if you can." </i>
     *[Ask how you get out.]
-    "How do I get out?"
-    <i>"Find yourself."</i> With that, the Nurse begins to disappear, and leaves nothing but a pile of black sludge in their wake. 
-    -  
-    *-> END
+    *[. . .]->END
+    -<i>"Find yourself."</i> With that, the Nurse begins to disappear, and leaves nothing but a pile of black sludge in their wake. 
+    *[. . .]-> END
     
         === attack_nurse ===
         You attack the nurse, killing them swiftly. Their body melts into a pile of black sludge, with a shiny silver flashlight sitting within it.

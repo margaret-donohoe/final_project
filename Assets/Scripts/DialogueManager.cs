@@ -80,6 +80,11 @@ public class DialogueManager : MonoBehaviour
 
     public void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (starterAssetsInputs.submit && dialogueIsPlaying == false)
         {
             //Debug.Log(story.Continue());
@@ -112,15 +117,7 @@ public class DialogueManager : MonoBehaviour
             choiceInd++;
             ChangeChoice(choiceInd);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        if (dialogueIsPlaying == false)
-        {
-            dialoguePanel.SetActive(false);
-            Debug.Log("finish");
-        }
+        
     }
 
 
@@ -137,6 +134,9 @@ public class DialogueManager : MonoBehaviour
     {
         
         dialogueIsPlaying = false;
+
+
+        ContinueStory();
         //dialoguePanel.SetActive(false);
         dialogueText.text = "";
         player.enabled = true;
@@ -170,10 +170,7 @@ public class DialogueManager : MonoBehaviour
         }
         int index = 0;
 
-        if(curChoices.Count == 0)
-        {
-            choicesText[0].text = "...";
-        }
+        
 
         foreach (Choice choice in curChoices)
         {
