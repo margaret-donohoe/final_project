@@ -10,13 +10,15 @@ public class Target : MonoBehaviour
     private Transform player;
     public Animator enemyAnimator;
 
+    public float damage;
+    public PlayerHealth playerHealth;
+
     void Start()
     {
         enemyAnimator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (player == null)
         {
-            
             Debug.LogError("Player not found.");
         }
     }
@@ -31,6 +33,16 @@ public class Target : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(directionToPlayer);
         }
     }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            Debug.Log("Player gets attacked by enemy");
+            playerHealth.PlayerDamage(damage);
+
+        }
+    }
+
     public void TakeDamage(float amount)
     {
         enemyAnimator.SetTrigger("attack");
