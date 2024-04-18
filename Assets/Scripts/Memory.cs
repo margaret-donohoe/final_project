@@ -22,6 +22,11 @@ public class Memory : MonoBehaviour
         {
             knot = "enter";
         }
+
+        if (name == "Slender")
+        {
+            knot = "tutorial";
+        }
         else
         {
             knot = "";

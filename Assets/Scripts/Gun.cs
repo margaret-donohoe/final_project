@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
-    public float impact = 80f;
+    public float impact = 500f;
 
     public Camera fpsCam;
     private StarterAssetsInputs starterAssetsInputs;

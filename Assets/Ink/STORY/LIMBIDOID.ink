@@ -18,6 +18,18 @@ You stand in a black void, { level ==1: holding a shotgun, }with nothing before 
 The room beyond the doorway appears to be a hospital nursery. It is empty, and so are all of the cradles within it, save for one which bleeds a sort of goopy darkness. You search for the patient informtion slip, but find that every line is redacted. The cradle's darkness leads to an office on the other side of the room.
 *[Enter the office.] -> enter
 
+=== tutorial ===
+"oooo child, things are gonna get easier..."
+* [What?]->what
+* [Where am I?]->where
+* [Who are you?]->who
+-(where) "don't worry your pretty head about that just yet. go on... pick up a block."
+->END
+-(what) "don't be rude. obvious you weren't around long enough to learn some manners."
+->END
+-(who) "nobody."
+->END
+
 === enter ===
 - You enter the office, and within the new room stands a creature made entirely of eyes. They wear ill-fitting scrubs, which serve as poor coverage for their sickly form.
 *[Ask the creature where you are.] -> talk_to_nurse
@@ -36,6 +48,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
         === attack_nurse ===
         You attack the nurse, killing them swiftly. Their body melts into a pile of black sludge, with a shiny silver flashlight sitting within it.
         *[Take the flashlight.]-> END
+    
     
     === nursery_again ===
     Returning to the nursery, you are once again drawn towards the dark cradle. 

@@ -74,6 +74,7 @@ public class DialogueManager : MonoBehaviour
         {
             currentMemory = collision.gameObject.GetComponent<Memory>();
             currentKnot = currentMemory.GetKnot();
+            Debug.Log(currentKnot);
             story.ChoosePathString(currentKnot);
         }
     }
