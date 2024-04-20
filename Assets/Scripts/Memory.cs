@@ -7,7 +7,7 @@ public class Memory : MonoBehaviour
     private string n;
     private string k;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         n = gameObject.name;
         SetKnot(n);
