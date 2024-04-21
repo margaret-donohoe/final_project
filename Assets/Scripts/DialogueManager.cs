@@ -94,8 +94,8 @@ public class DialogueManager : MonoBehaviour
 
         if (starterAssetsInputs.submit && dialogueIsPlaying == true && curChoices.Count > 0)
         {
-            MakeChoice(choiceInd);
-            ExitDialogueMode();
+           MakeChoice(choiceInd);
+           ExitDialogueMode();
         }
 
         if (starterAssetsInputs.submit && dialogueIsPlaying == true && curChoices.Count == 0)
@@ -117,7 +117,12 @@ public class DialogueManager : MonoBehaviour
             choiceInd++;
             ChangeChoice(choiceInd);
         }
-        
+
+        if (dialogueJustPlayed == true && starterAssetsInputs.submit)
+        {
+            dialoguePanel.SetActive(false);
+            dialogueText.text = "";
+        }
     }
 
 
@@ -132,13 +137,12 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogueMode()
     {
-        
-        dialogueIsPlaying = false;
-
-
+        if(story.canContinue == false)
+        {
+            dialogueIsPlaying = false;
+            
+        }
         ContinueStory();
-        //dialoguePanel.SetActive(false);
-        dialogueText.text = "";
         player.enabled = true;
         GameObject myEventSystem = GameObject.Find("UI_EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
@@ -154,7 +158,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             dialogueJustPlayed = true;
-            dialoguePanel.SetActive(false);
+            //dialoguePanel.SetActive(false);
             StartCoroutine(StopDialogue());
         }
         //GameObject myEventSystem = GameObject.Find("UI_EventSystem");
@@ -218,7 +222,9 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator StopDialogue()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
+        dialogueText.text = "";
+        dialoguePanel.SetActive(false);
         dialogueJustPlayed = false;
     }
 }

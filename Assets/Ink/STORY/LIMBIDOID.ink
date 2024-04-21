@@ -20,12 +20,12 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 
 === tutorial ===
 "oooo child, things are gonna get easier..."
-* [What?]
-"don't worry your pretty head about that just yet. go on... pick up a block."->END
-* [Where am I?]
-"don't be rude. obvious you weren't around long enough to learn some manners."->END
-* [Who are you?]
-"nobody."->END
+* [What?]->what
+-(what)"don't worry your pretty head about that just yet. go on... pick up a block."
+* [Where am I?]->where
+-(where)"don't be rude. obvious you weren't around long enough to learn some manners."
+* [Who are you?]->who
+-(who)"nobody."->END
 === enter ===
 - You enter the office, and within the new room stands a creature made entirely of eyes. They wear ill-fitting scrubs, which serve as poor coverage for their sickly form.
 *[Ask the creature where you are.] -> talk_to_nurse
