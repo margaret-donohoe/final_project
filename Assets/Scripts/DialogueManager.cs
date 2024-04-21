@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour
             ChangeChoice(choiceInd);
         }
 
-        if (dialogueJustPlayed == true && starterAssetsInputs.submit)
+        if (dialogueJustPlayed == true && starterAssetsInputs.submit && dialogueIsPlaying == false)
         {
             dialoguePanel.SetActive(false);
             dialogueText.text = "";

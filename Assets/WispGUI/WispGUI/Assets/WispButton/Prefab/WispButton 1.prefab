@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3613512857817265409}
   - component: {fileID: 3613512857817265410}
   m_Layer: 5
-  m_Name: WispButton
+  m_Name: WispButton 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca0aeb44080f384da49d20a240bb7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5
+  id: 7
   depthInHierarchy: 1
   isAvailableForInput: 1
   style: {fileID: 11400000, guid: 54309b81f1c8e9244ae62ae8595dc612, type: 2}
@@ -235,15 +235,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 88d58bc1978af4826a414b3d7beec933, type: 2}
+  m_sharedMaterial: {fileID: -2574568330871714915, guid: 88d58bc1978af4826a414b3d7beec933, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.7647059, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

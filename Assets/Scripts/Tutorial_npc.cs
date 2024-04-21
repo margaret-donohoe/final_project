@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class Tutorial_enemy : MonoBehaviour
+public class Tutorial_npc : MonoBehaviour
 {
-    public Image directions;
-    private Color on = new Color(1, 1, 1, 1);
+    public TextMeshProUGUI directions;
+    private Color on = new Color(.443f,.007f,.223f,1);
     private Color off = new Color(1, 1, 1, 0);
     private float alpha;
-
-    private bool combatTime = false;
-    public GameObject enemy;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,23 +18,21 @@ public class Tutorial_enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player" && combatTime == false)
+        if (collision.gameObject.tag == "Player")
         {
-            //combatTime = true;
             StartCoroutine(fadeOn());
         }
     }
 
     IEnumerator fadeOn()
     {
-        while(directions.color.a<1)
+        while (directions.color.a < 1)
         {
-            combatTime = true;
-            Color fade = new Color(1, 1, 1, alpha + 0.025f);
+            Color fade = new Color(.443f, .007f, .223f, alpha + 0.025f);
             alpha = directions.color.a;
             directions.color = fade;
             yield return new WaitForSeconds(0.025f);
         }
-        
+
     }
 }

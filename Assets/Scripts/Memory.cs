@@ -16,23 +16,42 @@ public class Memory : MonoBehaviour
     // Update is called once per frame
     public void SetKnot(string name)
     {
-        string knot;
+        //string knot = "";
 
         if(name == "nurse")
         {
-            knot = "enter";
+            k = "enter";
         }
 
         if (name == "Slender")
         {
-            knot = "tutorial";
-        }
-        else
-        {
-            knot = "";
+            k = "tutorial";
         }
 
-        k = knot;
+        if (name == "mom")
+        {
+            k = "tutorial";
+        }
+
+        if (name == "dad")
+        {
+            k = "mummy";
+        }
+
+        if (name == "dad")
+        {
+            k = "daddy";
+        }
+        
+        if (name == "jessica")
+        {
+            k = "levelTwo.j1";
+        }
+
+        else
+        {
+            k = "";
+        }
     }
 
     public string GetKnot()
