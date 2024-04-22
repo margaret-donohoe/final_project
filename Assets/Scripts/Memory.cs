@@ -28,22 +28,22 @@ public class Memory : MonoBehaviour
             k = "tutorial";
         }
 
-        if (name == "mom")
+        else if (name == "mom")
         {
             k = "tutorial";
         }
 
-        if (name == "dad")
+        else if (name == "dad")
         {
             k = "mummy";
         }
 
-        if (name == "dad")
+        else if (name == "dad")
         {
             k = "daddy";
         }
         
-        if (name == "jessica")
+        else if (name == "jessica")
         {
             k = "levelTwo.j1";
         }

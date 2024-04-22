@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
         if(story.canContinue == false)
         {
             dialogueIsPlaying = false;
-            
+            StartCoroutine(StopDialogue());
         }
         ContinueStory();
         player.enabled = true;
@@ -159,7 +159,7 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueJustPlayed = true;
             //dialoguePanel.SetActive(false);
-            StartCoroutine(StopDialogue());
+            
         }
         //GameObject myEventSystem = GameObject.Find("UI_EventSystem");
         //myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
