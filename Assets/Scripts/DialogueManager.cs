@@ -100,11 +100,7 @@ public class DialogueManager : MonoBehaviour
 
         if (starterAssetsInputs.submit && dialogueIsPlaying == true && curChoices.Count == 0)
         {
-            ExitDialogueMode();
-        }
-
-        if(story.canContinue == false && starterAssetsInputs.submit)
-        {
+            ContinueStory();
             ExitDialogueMode();
         }
 
@@ -146,7 +142,7 @@ public class DialogueManager : MonoBehaviour
             dialogueIsPlaying = false;
             StartCoroutine(StopDialogue());
         }
-        //ContinueStory();
+        ContinueStory();
         player.enabled = true;
         GameObject myEventSystem = GameObject.Find("UI_EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
@@ -228,7 +224,6 @@ public class DialogueManager : MonoBehaviour
     IEnumerator StopDialogue()
     {
         yield return new WaitForSeconds(5);
-        ContinueStory();
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
         dialogueJustPlayed = false;
