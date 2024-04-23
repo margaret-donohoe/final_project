@@ -68,22 +68,22 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     * ->goForth
     
         === mummy ===
-        You turn to the woman, who sighs and takes your hand. 
-        <i> "Darling, I'm so sorry. I didn't know. I couldn't have known..." </i>She turns to the face sheet on a clipboard above the bed. <i>Your</i> bed.
+        This unfamiliar woman sighs and takes your hand.
+        "Darling, I'm so sorry. I didn't know. I couldn't have known..." </i>
+        *[...]
+        -She turns to the face sheet on a clipboard above the bed. <i>Your</i> bed.
         * [Read the chart.]
-        - The medical language is undiscernable to you for the most part, but you glean a few useful pieces of information.
+        - The medical language is undiscernable for the most part, but you glean some useful information.
         NAME: VANCE, ESTHER
         DELIVERY DATE / TIME: 12.13.1977, 14:34
         RESUSITATION AT BIRTH: YES
         DELIVERY COMPLICATIONS: MENINGITIS, ANEMIA
-        NEONATAL DIAGNOSES: CONGENITAL SYPHILIS
-        - This certainly feels like you're getting closer to 'finding yourself'. Perhaps the eyeball nurse wasn't as useless as you thought.
-        ->NICU.decision
+        NEONATAL DIAGNOSIS: CONGENITAL SYPHILIS
+        ->END
         
         === daddy ===
-        You approach the man, who somehow looks angry. He looks at the woman with disgust, and you with shame.
-        - <i>"What a man gets for marrying a whore."</i> You wonder if that's the entire story.
-        ->NICU.decision
+        "What a man gets for marrying a whore."
+        ->END
         
         === goForth ===
         Your parents both stare at you, as if expecting you to know what to say or do next. Where is your body? Are you dead?
@@ -106,14 +106,15 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     
 === levelTwo ===
 Unsurprisingly, you step into a smelly car in an underground train. The only other person present is sitting on in the center of the traincar, looking up at the map. She beckons to you enthusiastically. For some unexplicable reason, you know her name to be Jessica.
-* (j1)[Talk to Jessica.]
-<i> "I know you're not, like, in LOVE with the venue, but I promise I'll make dragging you down here worth it. And it's not just because I can't get roofied again." </i>
-- Something tells you that it is 100% because she can't get roofied again. But she seems like your friend, so maybe she's helped you in the past and deserves your support.
-* (j2)[Continue.]
-- <i> "Besides, they're your favorite band, right??? I won't mind if you spend more time dancing than with me." </i> That's a relief. You can picture the night before you: good music, overpriced drinks, and Jessica with some random piece of ass in the corner. Typical weekend stuff.
 
-<i> "We're the next stop." </i> You both stand, and feel the jolt of the rickety train screeching to a halt.
-* [Leave the train.] -> night_club
+* (j1)[Talk to Jessica.]->jess
+=== jess ===
+"I know you're not, like, in LOVE with the venue, but I promise I'll make dragging you down here worth it. And it's not just because I can't get roofied again." 
+*[...]->cont
+-(cont)"Besides, they're your favorite band, right??? I won't mind if you spend more time dancing than with me."
+[...alright]->cont2
+-(cont2)"don't be rude. obvious you weren't around long enough to learn some manners."
+"We're the next stop." </i> You both stand, and feel the jolt of the rickety train screeching to a halt. -> END
 
     === night_club===
     Leaving the train, you step directly into a dark room with neon lights and dancing shadows. Looking back, the door is no longer the same as before.
@@ -134,18 +135,15 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
         
         === bathroom ===
         As soon as you walk in, you immediately recognize the heels sticking out beneath the furthest stall door, and hear faint retching.
-        * [Open the stall.]
-        - Jessica looks up, her face pallid and sickly. <i> "Where in the HELL have you been?!" </i> 
-        * "Killing monsters." 
-        ->monsters
-        * "You told me to go away the one time I saw you."
-        ->truth
-        - (monsters) <i> "Right. What a compelling excuse. Do me a favor and piss off." </i> She keels slightly, clearly very drunk. It's your funeral, not hers. She'll be fine. ->cont
-        - (truth) She scowls drunkenly. <i> "Fucking whatever. Just go, I'm sick of you and this place and the booze and my dress and..." </i> ->cont
+        * [Open the stall.]->j_bathroom
+        === j_bathroom ===
+        Jessica looks up, her face pallid and sickly. <i> "Where in the HELL have you been?!" </i> 
+        * "Killing monsters." ->monsters
+        * "You told me to go away the one time I saw you."->truth
+        - (monsters) "Right. What a compelling excuse. Do me a favor and piss off." She keels slightly, clearly very drunk. It's your funeral, not hers. She'll be fine. ->cont
+        - (truth) She scowls drunkenly. "Fucking whatever. Just go, I'm sick of you and this place and the booze and my dress and..." ->cont
         - (cont) 
-        *[Leave.]
-        You walk away, now irritated and friendless in this unfamiliar place.
-        -> disco_boss
+        *[Leave.]->END
     
     === disco_boss ===
     Finally, you emerge in the main hall, where your favorite band <i>should</i> be playing. Instead it is entirely empty, save for a taped-off area in the pit, surrounding a broken body. It is covered in bootmarks and breathes raggedly. Suddenly, the disco ball hanging above the stage begins to lower.
