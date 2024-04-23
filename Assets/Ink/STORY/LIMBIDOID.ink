@@ -21,10 +21,12 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 === tutorial ===
 "oooo child, things are gonna get easier..."
 * [What?]->what
--(what)"don't worry your pretty head about that just yet. go on... pick up a block."
 * [Where am I?]->where
--(where)"don't be rude. obvious you weren't around long enough to learn some manners."
 * [Who are you?]->who
+-(what)"don't worry your pretty head about that just yet. go on... pick up a block."
+->END
+-(where)"don't be rude. obvious you weren't around long enough to learn some manners."
+->END
 -(who)"nobody."
 ->END
 === enter ===
