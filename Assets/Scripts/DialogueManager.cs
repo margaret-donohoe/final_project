@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour
             ChangeChoice(choiceInd);
         }
 
-        if (dialogueJustPlayed == true && starterAssetsInputs.submit && dialogueIsPlaying == false)
+        if (dialogueJustPlayed == true && dialogueIsPlaying == false)
         {
             dialoguePanel.SetActive(false);
             dialogueText.text = "";
@@ -200,6 +200,7 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         story.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
     }
 
     void ChangeChoice(int cI)
