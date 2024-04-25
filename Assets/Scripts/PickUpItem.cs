@@ -12,10 +12,12 @@ public class PickUpItem : MonoBehaviour
     public Vector3 shieldPos;
     //public GameObject poseParent;
     //private Vector3 pos;
-    //public GameObject pickUpItemCamera;
+    public GameObject pickUpItemCamera;
+    private PlayerHealth h;
 
     private void Start()
     {
+        h = gameObject.GetComponent<PlayerHealth>();
         //pos = poseParent.transform.position;
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         playerCapsule = transform.GetComponentInChildren<CharacterController>();
@@ -31,6 +33,7 @@ public class PickUpItem : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             if (hit.transform.gameObject.tag == "Shield" && Input.GetButtonDown("Cancel"))
             {
+                h.SetShield(true);
                 itemPickedUp = hit.transform.gameObject;
                 hit.transform.SetParent(playerCapsule.transform);
                 hit.transform.localPosition = Vector3.zero;
@@ -39,12 +42,13 @@ public class PickUpItem : MonoBehaviour
                 hit.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 hit.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 hit.transform.gameObject.GetComponent<Collider>().enabled = false;
-                mainCamera.GetComponent<Camera>().cullingMask = LayerMask.GetMask("TransparentFX", "UI", "Ignore Raycast", "Water", "Default");
+                mainCamera.GetComponent<Camera>().cullingMask = LayerMask.GetMask("TransparentFX", "UI", "Ignore Raycast", "Water", "Default","Shield");
                 //pickUpItemCamera.gameObject.SetActive(true);
             }
         }
         if (Input.GetButtonDown("Fire2") && itemPickedUp)
         {
+            h.SetShield(false);
             itemPickedUp.transform.SetParent(null);
             itemPickedUp.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
             itemPickedUp.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
