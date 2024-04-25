@@ -229,7 +229,7 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator StopDialogue()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         dialogueText.text = "";
         choicesText[0].text = "";
         dialoguePanel.SetActive(false);
