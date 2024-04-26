@@ -16,11 +16,20 @@ public class Gun : MonoBehaviour
     public GameObject impactFX;
     public ParticleSystem bulletFX;
 
+    //public Gun gun;
+    private PlayerHealth shield;
+    private bool hasShield;
+
     public Target target;
+
+    private void Awake()
+    {
+        shield = gameObject.GetComponentInParent<PlayerHealth>();
+    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && hasShield == false)
         {
             StartCoroutine(Shoot());
         }
@@ -48,5 +57,10 @@ public class Gun : MonoBehaviour
             yield return new WaitForSeconds(.2f);
             Instantiate(impactFX, hit.point, Quaternion.LookRotation(hit.normal));
         }
+    }
+
+    public void SendShield(bool b)
+    {
+        hasShield = b;
     }
 }

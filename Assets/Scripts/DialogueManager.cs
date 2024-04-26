@@ -35,10 +35,19 @@ public class DialogueManager : MonoBehaviour
     private int choiceInd = 0;
     private Choice playerChoice;
 
+    private Gun gun;
+    private GameObject handguard;
+    private GameObject mesh;
+    private SkinnedMeshRenderer mr;
+
     public void Awake()
     {
         //pressUp = InputSystem.actions.FindAction("up");
         //pressDown = InputSystem.actions.FindAction("down");
+        gun = gameObject.GetComponentInChildren<Gun>();
+        handguard = GameObject.Find("shotgun_handguard_001");
+        mesh = GameObject.Find("player");
+        mr = mesh.GetComponent<SkinnedMeshRenderer>();
 
         if (Instance == null)
         {
@@ -76,6 +85,10 @@ public class DialogueManager : MonoBehaviour
             currentMemory = collision.gameObject.GetComponent<Memory>();
             currentKnot = currentMemory.GetKnot();
             story.ChoosePathString(currentKnot);
+
+            gun.gameObject.layer = 3;
+            handguard.gameObject.layer = 3;
+            mr.enabled = false;
         }
     }
 
@@ -117,14 +130,6 @@ public class DialogueManager : MonoBehaviour
             //Debug.Log("DOWN");
             choiceInd++;
             ChangeChoice(choiceInd);
-        }
-
-        if(starterAssetsInputs.escape)
-        {
-            dialogueText.text = "";
-            choicesText[0].text = "";
-            dialoguePanel.SetActive(false);
-            dialogueJustPlayed = false;
         }
 
     }
@@ -234,5 +239,9 @@ public class DialogueManager : MonoBehaviour
         choicesText[0].text = "";
         dialoguePanel.SetActive(false);
         dialogueJustPlayed = false;
+
+        gun.gameObject.layer = 0;
+        handguard.gameObject.layer = 0;
+        mr.enabled = true;
     }
 }

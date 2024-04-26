@@ -9,11 +9,21 @@ public class PlayerHealth : MonoBehaviour
     public float playerHealth;
     public Image playerHealthBar;
 
+    private Gun gun;
+    private GameObject handguard;
+    private GameObject mesh;
+    private SkinnedMeshRenderer mr;
+
     public bool shielded = false;
     //private Animator playerAnimator;
 
     private void Start()
     {
+        handguard = GameObject.Find("shotgun_handguard_001");
+        mesh = GameObject.Find("player");
+        mr = mesh.GetComponent<SkinnedMeshRenderer>();
+        //dm = gameObject.GetComponentInParent<DialogueManager>();
+        gun = gameObject.GetComponentInChildren<Gun>();
         playerHealth = maxHealth;
         //playerAnimator = GetComponent<Animator>();
     }
@@ -38,11 +48,24 @@ public class PlayerHealth : MonoBehaviour
         if(b == true)
         {
             shielded = true;
+            gun.gameObject.layer = 3;
+            handguard.gameObject.layer = 3;
+            mr.enabled = false;
         }
         if (b == false)
         {
             shielded = false;
+            gun.gameObject.layer = 0;
+            handguard.gameObject.layer = 0;
+            mr.enabled = true;
         }
+
+        gun.SendShield(shielded);
+    }
+
+    public bool GetShield()
+    {
+        return shielded;
     }
 }
 
