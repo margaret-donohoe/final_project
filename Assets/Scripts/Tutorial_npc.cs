@@ -28,7 +28,7 @@ public class Tutorial_npc : MonoBehaviour
     {
         while (directions.color.a < 1)
         {
-            Color fade = new Color(.443f, .007f, .223f, alpha + 0.025f);
+            Color fade = new Color(1, 1, 1, alpha + 0.025f);
             alpha = directions.color.a;
             directions.color = fade;
             yield return new WaitForSeconds(0.025f);

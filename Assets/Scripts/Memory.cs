@@ -43,9 +43,14 @@ public class Memory : MonoBehaviour
             k = "daddy";
         }
         
-        else if (name == "jessica")
+        else if (name == "jessica1")
         {
-            k = "levelTwo.j1";
+            k = "jess";
+        }
+
+        else if (name == "jessica2")
+        {
+            k = "j_bathroom";
         }
 
         else

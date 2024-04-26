@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using StarterAssets;
 using UnityEngine.InputSystem;
 
+
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
@@ -118,11 +119,14 @@ public class DialogueManager : MonoBehaviour
             ChangeChoice(choiceInd);
         }
 
-        if (dialogueJustPlayed == true && dialogueIsPlaying == false)
+        if(starterAssetsInputs.escape)
         {
-            dialoguePanel.SetActive(false);
             dialogueText.text = "";
+            choicesText[0].text = "";
+            dialoguePanel.SetActive(false);
+            dialogueJustPlayed = false;
         }
+
     }
 
 
@@ -157,9 +161,11 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            //choices[0].gameObject.SetActive(true);
+            //choicesText[0].text = "[delete]";          //D-PAD LEFT FOR GAMEPAD MAPPING!! MAKE AN IF STATEMENT ONCE CHANGES RE MADE IN SCENE MANAGEMENT
             dialogueJustPlayed = true;
             //dialoguePanel.SetActive(false);
-            
+
         }
         //GameObject myEventSystem = GameObject.Find("UI_EventSystem");
         //myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
@@ -223,8 +229,9 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator StopDialogue()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1.5f);
         dialogueText.text = "";
+        choicesText[0].text = "";
         dialoguePanel.SetActive(false);
         dialogueJustPlayed = false;
     }

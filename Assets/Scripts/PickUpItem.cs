@@ -9,13 +9,16 @@ public class PickUpItem : MonoBehaviour
     private CharacterController playerCapsule;
     private GameObject itemPickedUp;
     public GameObject mainCamera;
-    public GameObject poseParent;
-    private Vector3 pos;
-    //public GameObject pickUpItemCamera;
+    public Vector3 shieldPos;
+    //public GameObject poseParent;
+    //private Vector3 pos;
+    public GameObject pickUpItemCamera;
+    private PlayerHealth h;
 
     private void Start()
     {
-        pos = poseParent.transform.position;
+        h = gameObject.GetComponent<PlayerHealth>();
+        //pos = poseParent.transform.position;
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         playerCapsule = transform.GetComponentInChildren<CharacterController>();
     }
@@ -28,35 +31,39 @@ public class PickUpItem : MonoBehaviour
         if (Physics.Raycast(transform.position, direction, out hit, maxDistance))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            if (hit.transform.gameObject.tag == "Shield" && starterAssetsInputs.pickUp)
+            if (hit.transform.gameObject.tag == "Shield" && Input.GetButtonDown("Cancel"))
             {
+                h.SetShield(true);
                 itemPickedUp = hit.transform.gameObject;
                 hit.transform.SetParent(playerCapsule.transform);
                 hit.transform.localPosition = Vector3.zero;
-                hit.transform.localPosition = pos;
+                hit.transform.localPosition = shieldPos;
                 hit.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
                 hit.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 hit.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                mainCamera.GetComponent<Camera>().cullingMask = LayerMask.GetMask("TransparentFX", "UI", "Ignore Raycast", "Water", "Default");
+                hit.transform.gameObject.GetComponent<Collider>().enabled = false;
+                mainCamera.GetComponent<Camera>().cullingMask = LayerMask.GetMask("TransparentFX", "UI", "Ignore Raycast", "Water", "Default","Shield");
                 //pickUpItemCamera.gameObject.SetActive(true);
             }
         }
-        if (starterAssetsInputs.drop && itemPickedUp)
+        if (Input.GetButtonDown("Fire2") && itemPickedUp)
         {
+            h.SetShield(false);
             itemPickedUp.transform.SetParent(null);
             itemPickedUp.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
             itemPickedUp.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            itemPickedUp.transform.gameObject.GetComponent<Collider>().enabled = true;
             itemPickedUp = null;
             //pickUpItemCamera.gameObject.SetActive(false);
             mainCamera.GetComponent<Camera>().cullingMask = -1;
         }
-        if (starterAssetsInputs.pickUp)
+        if (Input.GetButtonDown("Cancel"))
         {
-            starterAssetsInputs.pickUp = false;
+            //starterAssetsInputs.pickUp = false;
         }
-        if (starterAssetsInputs.drop)
+        if (Input.GetButtonDown("Fire2"))
         {
-            starterAssetsInputs.drop = false;
+            //starterAssetsInputs.drop = false;
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Talk
   - Shield
   - Item
+  - Door
   layers:
   - Default
   - TransparentFX
