@@ -20,10 +20,12 @@ public class Gun : MonoBehaviour
     private PlayerHealth shield;
     private bool hasShield;
 
+    private AudioSource shoot1;
     public Target target;
 
     private void Awake()
     {
+        shoot1 = gameObject.GetComponentInParent<AudioSource>();
         shield = gameObject.GetComponentInParent<PlayerHealth>();
     }
 
@@ -44,7 +46,7 @@ public class Gun : MonoBehaviour
             bulletFX.Play();
             Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
-
+            shoot1.Play();
 
             if (target != null)
             {
