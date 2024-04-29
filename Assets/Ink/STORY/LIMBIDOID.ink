@@ -32,17 +32,21 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 === enter ===
 - You enter the office, and within the new room stands a creature made entirely of eyes. They wear ill-fitting scrubs, which serve as poor coverage for their sickly form.
 *[Ask the creature where you are.] -> talk_to_nurse
-*[Attack.] -> attack_nurse
+
 
     === talk_to_nurse ===
     VAR hasFlashlight = false
-    - <i> "The Hospital." </i>
+    - "Please go back to your room, sweetheart."
     * [Ask where you are meant to go.]
-    -<i> "Out. Back, if you can." </i>
+    *[. . .]->Goodbye_Nurse
+    -<i> "Back, if you can. But you have to get through here first." </i>
     *[Ask how you get out.]
-    *[. . .]->END
-    -<i>"Find yourself."</i> With that, the Nurse begins to disappear, and leaves nothing but a pile of black sludge in their wake. 
-    *[. . .]-> END
+    *[. . .]->Goodbye_Nurse
+    -<i>"Find yourself."</i> 
+    *[. . .]->Goodbye_Nurse
+    
+    === Goodbye_Nurse ===
+    With that, the Nurse begins to disappear, and leaves nothing but a pile of black sludge in their wake. ->END
     
         === attack_nurse ===
         You attack the nurse, killing them swiftly. Their body melts into a pile of black sludge, with a shiny silver flashlight sitting within it.

@@ -56,9 +56,9 @@ public class Gun : MonoBehaviour
                     hit.rigidbody.AddForce(-hit.normal * impact);
                 }
             }
-            yield return new WaitForSeconds(.2f);
             Instantiate(impactFX, hit.point, Quaternion.LookRotation(hit.normal));
         }
+        yield return new WaitForSeconds(.2f);
     }
 
     public void SendShield(bool b)
