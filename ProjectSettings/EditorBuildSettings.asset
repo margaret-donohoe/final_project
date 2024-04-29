@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 08474b9840c2b4913bf8d10200cd5cc3
   - enabled: 1
+    path: Assets/Scenes/TransitionRoom.unity
+    guid: 701541beb96bf3f4aa0af6c9c604c4e1
+  - enabled: 1
     path: Assets/Scenes/hsp.unity
     guid: e48b002b3287b4c81b8c32975a365359
   - enabled: 1
