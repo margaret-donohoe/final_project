@@ -21,7 +21,8 @@ public class Memory : MonoBehaviour
 
         if(name == "nurse")
         {
-            k = "enter";
+            k = "talk_to_nurse";
+            Debug.Log("knot set");
         }
 
         if (name == "Slender")
@@ -30,11 +31,6 @@ public class Memory : MonoBehaviour
         }
 
         else if (name == "mom")
-        {
-            k = "tutorial";
-        }
-
-        else if (name == "dad")
         {
             k = "mummy";
         }
@@ -63,5 +59,6 @@ public class Memory : MonoBehaviour
     public string GetKnot()
     {
         return k;
+        Debug.Log("knot called");
     }
 }

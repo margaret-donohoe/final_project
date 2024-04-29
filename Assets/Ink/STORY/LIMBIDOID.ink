@@ -18,7 +18,7 @@ You stand in a black void, { level ==1: holding a shotgun, }with nothing before 
 The room beyond the doorway appears to be a hospital nursery. It is empty, and so are all of the cradles within it, save for one which bleeds a sort of goopy darkness. You search for the patient informtion slip, but find that every line is redacted. The cradle's darkness leads to an office on the other side of the room.
 *[Enter the office.] -> enter
 
-=== tutorial ===
+===tutorial===
 "oooo child, things are gonna get easier..."
 * ['What?']->what
 * ['Where am I?']->where
@@ -34,15 +34,14 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 *[Ask the creature where you are.] -> talk_to_nurse
 
 
-    === talk_to_nurse ===
-    VAR hasFlashlight = false
-    - "Please go back to your room, sweetheart."
+    ===talk_to_nurse===
+    "Please go back to your room, sweetheart."
     * [Ask where you are meant to go.]
     *[. . .]->Goodbye_Nurse
-    -<i> "Back, if you can. But you have to get through here first." </i>
+    -"Back, if you can. But you have to get through here first."
     *[Ask how you get out.]
     *[. . .]->Goodbye_Nurse
-    -<i>"Find yourself."</i> 
+    -"Find yourself."
     *[. . .]->Goodbye_Nurse
     
     === Goodbye_Nurse ===
@@ -55,7 +54,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     
     === nursery_again ===
     Returning to the nursery, you are once again drawn towards the dark cradle. 
-    {hasFlashlight == true: Shining your brand-new flashlight on the patient information,| Approaching it, you notice a shiny silver object inside that you swore wasn't there before: a heavy-duty flashlight. You pick it up, and shining it on the patient information, } you can now see that an infant called Esther Vance was transferred to the Neonatal Intensve Care Unit before getting sent to the nursery. You set off in search of it. 
+    //{hasFlashlight == true: Shining your brand-new flashlight on the patient information,| Approaching it, you notice a shiny silver object inside that you swore wasn't there before: a heavy-duty flashlight. You pick it up, and shining it on the patient information, } you can now see that an infant called Esther Vance was transferred to the Neonatal Intensve Care Unit before getting sent to the nursery. You set off in search of it. 
     *[Look for the NICU.]
     -> hallway
     
@@ -71,7 +70,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     *[Talk to the man.] -> daddy
     * ->goForth
     
-        === mummy ===
+        ===mummy===
         This uncannily familiar woman sighs and takes your hand.
         "Darling, I'm so sorry. I didn't know. I couldn't have known..." </i>
         *[Walk away.] ->END
@@ -81,7 +80,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
         *[Hug her.]
         - She smiles and holds your hand."My love, don't let people get too close-- especially when you're young. That way, nothing can hurt you." ->END
         
-        === daddy ===
+        ===daddy===
         "What a man gets for marrying a whore." ->END
         
         === goForth ===
