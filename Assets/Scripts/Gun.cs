@@ -16,11 +16,22 @@ public class Gun : MonoBehaviour
     public GameObject impactFX;
     public ParticleSystem bulletFX;
 
+    //public Gun gun;
+    private PlayerHealth shield;
+    private bool hasShield;
+
+    private AudioSource shoot1;
     public Target target;
+
+    private void Awake()
+    {
+        shoot1 = gameObject.GetComponentInParent<AudioSource>();
+        shield = gameObject.GetComponentInParent<PlayerHealth>();
+    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && hasShield == false)
         {
             StartCoroutine(Shoot());
         }
@@ -35,7 +46,7 @@ public class Gun : MonoBehaviour
             bulletFX.Play();
             Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
-
+            shoot1.Play();
 
             if (target != null)
             {
@@ -48,5 +59,10 @@ public class Gun : MonoBehaviour
             yield return new WaitForSeconds(.2f);
             Instantiate(impactFX, hit.point, Quaternion.LookRotation(hit.normal));
         }
+    }
+
+    public void SendShield(bool b)
+    {
+        hasShield = b;
     }
 }

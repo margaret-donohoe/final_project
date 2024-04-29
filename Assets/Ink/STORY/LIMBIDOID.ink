@@ -20,9 +20,9 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 
 === tutorial ===
 "oooo child, things are gonna get easier..."
-* [What?]->what
-* [Where am I?]->where
-* [Who are you?]->who
+* ['What?']->what
+* ['Where am I?']->where
+* ['Who are you?']->who
 -(what)"don't worry your pretty head about that just yet. go on... pick up a block."
 ->END
 -(where)"don't be rude. obvious you weren't around long enough to learn some manners."
@@ -68,22 +68,17 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     * ->goForth
     
         === mummy ===
-        This unfamiliar woman sighs and takes your hand.
+        This uncannily familiar woman sighs and takes your hand.
         "Darling, I'm so sorry. I didn't know. I couldn't have known..." </i>
-        *[...]
-        -She turns to the face sheet on a clipboard above the bed. <i>Your</i> bed.
-        * [Read the chart.]
-        - The medical language is undiscernable for the most part, but you glean some useful information.
-        NAME: VANCE, ESTHER
-        DELIVERY DATE / TIME: 12.13.1977, 14:34
-        RESUSITATION AT BIRTH: YES
-        DELIVERY COMPLICATIONS: MENINGITIS, ANEMIA
-        NEONATAL DIAGNOSIS: CONGENITAL SYPHILIS
-        ->END
+        *[Walk away.] ->END
+        *[Ask, 'What happened?']
+        - She turns to the face sheet pasted to a stand on an incubator. "It's my fault. It's MY fault..."
+        * [Disengage and look for the chart.]->END
+        *[Hug her.]
+        - She smiles and holds your hand."My love, don't let people get too close-- especially when you're young. That way, nothing can hurt you." ->END
         
         === daddy ===
-        "What a man gets for marrying a whore."
-        ->END
+        "What a man gets for marrying a whore." ->END
         
         === goForth ===
         Your parents both stare at you, as if expecting you to know what to say or do next. Where is your body? Are you dead?
@@ -108,13 +103,13 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 Unsurprisingly, you step into a smelly car in an underground train. The only other person present is sitting on in the center of the traincar, looking up at the map. She beckons to you enthusiastically. For some unexplicable reason, you know her name to be Jessica.
 
 * (j1)[Talk to Jessica.]->jess
+
 === jess ===
 "I know you're not, like, in LOVE with the venue, but I promise I'll make dragging you down here worth it. And it's not just because I can't get roofied again." 
-*[...]->cont
--(cont)"Besides, they're your favorite band, right??? I won't mind if you spend more time dancing than with me."
-[...alright]->cont2
--(cont2)"don't be rude. obvious you weren't around long enough to learn some manners."
-"We're the next stop." </i> You both stand, and feel the jolt of the rickety train screeching to a halt. -> END
+*[...]
+-"Besides, they're your favorite band, right??? I won't mind if you spend more time dancing than with me."
+*['...Alright.']
+-"We're the next stop." You both stand, and feel the jolt of the rickety train screeching to a halt. -> END
 
     === night_club===
     Leaving the train, you step directly into a dark room with neon lights and dancing shadows. Looking back, the door is no longer the same as before.
@@ -136,6 +131,7 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
         === bathroom ===
         As soon as you walk in, you immediately recognize the heels sticking out beneath the furthest stall door, and hear faint retching.
         * [Open the stall.]->j_bathroom
+        
         === j_bathroom ===
         Jessica looks up, her face pallid and sickly. <i> "Where in the HELL have you been?!" </i> 
         * "Killing monsters." ->monsters
