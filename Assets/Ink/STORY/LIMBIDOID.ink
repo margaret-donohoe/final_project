@@ -107,11 +107,15 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
 * (j1)[Talk to Jessica.]->jess
 
 === jess ===
-"I know you're not, like, in LOVE with the venue, but I promise I'll make dragging you down here worth it. And it's not just because I can't get roofied again." 
+"I know you're not, like, in LOVE with the venue, but I promise I'll make dragging you down here worth it. 
+*[...]
+-And it's not just because I can't get roofied again." 
 *[...]
 -"Besides, they're your favorite band, right??? I won't mind if you spend more time dancing than with me."
-*['...Alright.']
--"We're the next stop." You both stand, and feel the jolt of the rickety train screeching to a halt. -> END
+*['...Alright.']->next
+*Leave. ->END
+===next===
+"We're the next stop." You both stand, and feel the jolt of the rickety train screeching to a halt. -> END
 
     === night_club===
     Leaving the train, you step directly into a dark room with neon lights and dancing shadows. Looking back, the door is no longer the same as before.
@@ -136,8 +140,8 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
         
         === jbathroom ===
         Jessica looks up, her face pallid and sickly. <i> "Where in the HELL have you been?!" </i> 
-        * "Killing monsters." ->monsters
-        * "You told me to go away the one time I saw you."->truth
+        * ["Killing monsters."] ->monsters
+        * ["You told me to go away the one time I saw you."]->truth
         - (monsters) "Right. What a compelling excuse. Do me a favor and piss off." She keels slightly, clearly very drunk. It's your funeral, not hers. She'll be fine. ->cont
         - (truth) She scowls drunkenly. "Fucking whatever. Just go, I'm sick of you and this place and the booze and my dress and..." ->cont
         - (cont) 

@@ -86,11 +86,22 @@ public class DialogueManager : MonoBehaviour
             currentKnot = currentMemory.GetKnot();
             print(currentKnot);
             story.ChoosePathString(currentKnot);
-
-            gun.gameObject.layer = 3;
-            handguard.gameObject.layer = 3;
-            mr.enabled = false;
+            if(gun.gameObject.layer != 3)
+            {
+                gun.gameObject.layer = 3;
+                handguard.gameObject.layer = 3;
+                mr.enabled = false;
+            }
         }
+    }
+
+    void OnTriggerExit(Collider collision)
+    {
+        currentKnot = null;
+
+        gun.gameObject.layer = 0;
+        handguard.gameObject.layer = 0;
+        mr.enabled = true;
     }
 
     public void Update()
@@ -239,6 +250,8 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         dialogueText.text = "";
         choicesText[0].text = "";
+        choicesText[1].text = "";
+        choicesText[2].text = "";
         dialoguePanel.SetActive(false);
         dialogueJustPlayed = false;
 
