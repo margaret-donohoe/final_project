@@ -84,6 +84,7 @@ public class DialogueManager : MonoBehaviour
         {
             currentMemory = collision.gameObject.GetComponent<Memory>();
             currentKnot = currentMemory.GetKnot();
+            print(currentKnot);
             story.ChoosePathString(currentKnot);
 
             gun.gameObject.layer = 3;
@@ -99,7 +100,7 @@ public class DialogueManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (starterAssetsInputs.submit && dialogueIsPlaying == false)
+        if (starterAssetsInputs.submit && dialogueIsPlaying == false && currentKnot != null)
         {
             //Debug.Log(story.Continue());
             EnterDialogueMode();
@@ -116,6 +117,7 @@ public class DialogueManager : MonoBehaviour
         {
             ContinueStory();
             ExitDialogueMode();
+            currentKnot = null;
         }
 
         if (starterAssetsInputs.up && choiceInd > 0)

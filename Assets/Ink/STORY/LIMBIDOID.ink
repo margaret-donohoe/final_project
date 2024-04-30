@@ -34,7 +34,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 *[Ask the creature where you are.] -> END
 
 
-    ===talk_to_nurse===
+    ===talktonurse===
     "Please go back to your room, sweetheart."
     * [Ask where you are meant to go.]
     *[. . .]->Goodbye_Nurse
@@ -132,9 +132,9 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
         
         === bathroom ===
         As soon as you walk in, you immediately recognize the heels sticking out beneath the furthest stall door, and hear faint retching.
-        * [Open the stall.]->j_bathroom
+        * [Open the stall.]->jbathroom
         
-        === j_bathroom ===
+        === jbathroom ===
         Jessica looks up, her face pallid and sickly. <i> "Where in the HELL have you been?!" </i> 
         * "Killing monsters." ->monsters
         * "You told me to go away the one time I saw you."->truth
