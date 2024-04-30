@@ -18,7 +18,7 @@ You stand in a black void, { level ==1: holding a shotgun, }with nothing before 
 The room beyond the doorway appears to be a hospital nursery. It is empty, and so are all of the cradles within it, save for one which bleeds a sort of goopy darkness. You search for the patient informtion slip, but find that every line is redacted. The cradle's darkness leads to an office on the other side of the room.
 *[Enter the office.] -> enter
 
-=== tutorial ===
+===tutorial===
 "oooo child, things are gonna get easier..."
 * ['What?']->what
 * ['Where am I?']->where
@@ -31,18 +31,21 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 ->END
 === enter ===
 - You enter the office, and within the new room stands a creature made entirely of eyes. They wear ill-fitting scrubs, which serve as poor coverage for their sickly form.
-*[Ask the creature where you are.] -> talk_to_nurse
-*[Attack.] -> attack_nurse
+*[Ask the creature where you are.] -> END
 
-    === talk_to_nurse ===
-    VAR hasFlashlight = false
-    - <i> "The Hospital." </i>
+
+    ===talktonurse===
+    "Please go back to your room, sweetheart."
     * [Ask where you are meant to go.]
-    -<i> "Out. Back, if you can." </i>
+    *[. . .]->Goodbye_Nurse
+    -"Back, if you can. But you have to get through here first."
     *[Ask how you get out.]
-    *[. . .]->END
-    -<i>"Find yourself."</i> With that, the Nurse begins to disappear, and leaves nothing but a pile of black sludge in their wake. 
-    *[. . .]-> END
+    *[. . .]->Goodbye_Nurse
+    -"Find yourself."
+    *[. . .]->Goodbye_Nurse
+    
+    === Goodbye_Nurse ===
+    With that, the Nurse begins to disappear, and leaves nothing but a pile of black sludge in their wake. ->END
     
         === attack_nurse ===
         You attack the nurse, killing them swiftly. Their body melts into a pile of black sludge, with a shiny silver flashlight sitting within it.
@@ -51,7 +54,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     
     === nursery_again ===
     Returning to the nursery, you are once again drawn towards the dark cradle. 
-    {hasFlashlight == true: Shining your brand-new flashlight on the patient information,| Approaching it, you notice a shiny silver object inside that you swore wasn't there before: a heavy-duty flashlight. You pick it up, and shining it on the patient information, } you can now see that an infant called Esther Vance was transferred to the Neonatal Intensve Care Unit before getting sent to the nursery. You set off in search of it. 
+    //{hasFlashlight == true: Shining your brand-new flashlight on the patient information,| Approaching it, you notice a shiny silver object inside that you swore wasn't there before: a heavy-duty flashlight. You pick it up, and shining it on the patient information, } you can now see that an infant called Esther Vance was transferred to the Neonatal Intensve Care Unit before getting sent to the nursery. You set off in search of it. 
     *[Look for the NICU.]
     -> hallway
     
@@ -63,13 +66,12 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     === NICU ===
     The Neonatal Intensive Care Unit contains four beds that look more like cryogenic tanks than a place where one could sleep. Beside one of the beds sits a couple constructed of shadows. Neither has a face. -> decision
     = decision
-    *[Talk to the woman.] -> mummy
-    *[Talk to the man.] -> daddy
+    *[Talk to the woman.] -> END
+    *[Talk to the man.] -> END
     * ->goForth
     
-        === mummy ===
-        This uncannily familiar woman sighs and takes your hand.
-        "Darling, I'm so sorry. I didn't know. I couldn't have known..." </i>
+        ===mummy===
+        This uncannily familiar woman sighs and takes your hand. "Darling, I'm so sorry. I didn't know. I couldn't have known..."
         *[Walk away.] ->END
         *[Ask, 'What happened?']
         - She turns to the face sheet pasted to a stand on an incubator. "It's my fault. It's MY fault..."
@@ -77,7 +79,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
         *[Hug her.]
         - She smiles and holds your hand."My love, don't let people get too close-- especially when you're young. That way, nothing can hurt you." ->END
         
-        === daddy ===
+        ===daddy===
         "What a man gets for marrying a whore." ->END
         
         === goForth ===
@@ -130,9 +132,9 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
         
         === bathroom ===
         As soon as you walk in, you immediately recognize the heels sticking out beneath the furthest stall door, and hear faint retching.
-        * [Open the stall.]->j_bathroom
+        * [Open the stall.]->jbathroom
         
-        === j_bathroom ===
+        === jbathroom ===
         Jessica looks up, her face pallid and sickly. <i> "Where in the HELL have you been?!" </i> 
         * "Killing monsters." ->monsters
         * "You told me to go away the one time I saw you."->truth
