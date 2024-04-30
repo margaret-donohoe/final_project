@@ -31,7 +31,7 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
 ->END
 === enter ===
 - You enter the office, and within the new room stands a creature made entirely of eyes. They wear ill-fitting scrubs, which serve as poor coverage for their sickly form.
-*[Ask the creature where you are.] -> talk_to_nurse
+*[Ask the creature where you are.] -> END
 
 
     ===talk_to_nurse===
@@ -66,13 +66,12 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     === NICU ===
     The Neonatal Intensive Care Unit contains four beds that look more like cryogenic tanks than a place where one could sleep. Beside one of the beds sits a couple constructed of shadows. Neither has a face. -> decision
     = decision
-    *[Talk to the woman.] -> mummy
-    *[Talk to the man.] -> daddy
+    *[Talk to the woman.] -> END
+    *[Talk to the man.] -> END
     * ->goForth
     
         ===mummy===
-        This uncannily familiar woman sighs and takes your hand.
-        "Darling, I'm so sorry. I didn't know. I couldn't have known..." </i>
+        This uncannily familiar woman sighs and takes your hand. "Darling, I'm so sorry. I didn't know. I couldn't have known..."
         *[Walk away.] ->END
         *[Ask, 'What happened?']
         - She turns to the face sheet pasted to a stand on an incubator. "It's my fault. It's MY fault..."
