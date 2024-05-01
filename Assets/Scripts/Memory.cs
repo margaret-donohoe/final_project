@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Memory : MonoBehaviour
 {
-    private string n;
+    public string n;
     private string k;
+
 
     // Start is called before the first frame update
     void Awake()
     {
-        n = gameObject.name;
         SetKnot(n);
     }
 
@@ -18,11 +18,6 @@ public class Memory : MonoBehaviour
     public void SetKnot(string name)
     {
         //string knot = "";
-
-        if(name == "nurse")
-        {
-            k = "enter";
-        }
 
         if (name == "Slender")
         {
