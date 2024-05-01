@@ -10,6 +10,7 @@ public class PickUpItem : MonoBehaviour
     private GameObject itemPickedUp;
     public GameObject mainCamera;
     public Vector3 shieldPos;
+    private Vector3 shieldSize;
     //public GameObject poseParent;
     //private Vector3 pos;
     private PlayerHealth h;
@@ -34,6 +35,7 @@ public class PickUpItem : MonoBehaviour
             {
                 h.SetShield(true);
                 itemPickedUp = hit.transform.gameObject;
+                shieldSize = itemPickedUp.transform.localScale;
                 hit.transform.SetParent(playerCapsule.transform);
                 hit.transform.localPosition = Vector3.zero;
                 hit.transform.localPosition = shieldPos;
@@ -53,7 +55,7 @@ public class PickUpItem : MonoBehaviour
             itemPickedUp.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
             itemPickedUp.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             itemPickedUp.transform.gameObject.GetComponent<Collider>().enabled = true;
-            itemPickedUp.transform.localScale = new Vector3(9,9,9);
+            itemPickedUp.transform.localScale = shieldSize;
             itemPickedUp = null;
             //pickUpItemCamera.gameObject.SetActive(false);
             mainCamera.GetComponent<Camera>().cullingMask = -1;
