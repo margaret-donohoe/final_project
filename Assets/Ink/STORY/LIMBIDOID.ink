@@ -70,15 +70,12 @@ The room beyond the doorway appears to be a hospital nursery. It is empty, and s
     
         ===mummy===
         This uncannily familiar woman sighs and takes your hand. "Darling, I'm so sorry. I didn't know. I couldn't have known..."
-        *[Walk away.] 
-        ->END
+        *[Walk away.] ->END
         *[Ask, 'What happened?']
         - She turns to the face sheet pasted to a stand on an incubator. "It's my fault. It's MY fault..."
-        * [Disengage and look for the chart.]
-        ->END
+        * [Disengage and look for the chart.]->END
         *[Hug her.]
-        - She smiles and holds your hand."My love, don't let people get too close-- especially when you're young. That way, nothing can hurt you." 
-        ->END
+        - She smiles and holds your hand."My love, don't let people get too close-- especially when you're young. That way, nothing can hurt you." ->END
         
         ===daddy===
         "What a man gets for marrying a whore." ->END
@@ -114,11 +111,9 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
 *[...]
 -"Besides, they're your favorite band, right??? I won't mind if you spend more time dancing than with me."
 *['...Alright.']->next
-*[Leave.]
-->END
+*[Leave.]->END
 ===next===
-"We're the next stop." You both stand, and feel the jolt of the rickety train screeching to a halt. 
--> END
+"We're the next stop." You both stand, and feel the jolt of the rickety train screeching to a halt. -> END
 
     === night_club===
     Leaving the train, you step directly into a dark room with neon lights and dancing shadows. Looking back, the door is no longer the same as before.
@@ -148,8 +143,7 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
         - (monsters) "Right. What a compelling excuse. Do me a favor and piss off." She keels slightly, clearly very drunk. It's your funeral, not hers. She'll be fine. ->cont
         - (truth) She scowls drunkenly. "Fucking whatever. Just go, I'm sick of you and this place and the booze and my dress and..." ->cont
         - (cont) 
-        *[Leave.]
-        ->END
+        *[Leave.]->END
     
     === disco_boss ===
     Finally, you emerge in the main hall, where your favorite band <i>should</i> be playing. Instead it is entirely empty, save for a taped-off area in the pit, surrounding a broken body. It is covered in bootmarks and breathes raggedly. Suddenly, the disco ball hanging above the stage begins to lower.

@@ -16,10 +16,13 @@ public class PlayerHealth : MonoBehaviour
     private SkinnedMeshRenderer mr;
 
     public bool shielded = false;
+
     //private Animator playerAnimator;
 
     private void Start()
     {
+        AudioListener.volume = PlayerPrefs.GetFloat("volume");
+
         handguard = GameObject.Find("shotgun_handguard_001");
         mesh = GameObject.Find("player");
         mr = mesh.GetComponent<SkinnedMeshRenderer>();
