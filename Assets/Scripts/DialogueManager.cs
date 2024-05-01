@@ -35,8 +35,9 @@ public class DialogueManager : MonoBehaviour
     private int choiceInd = 0;
     private Choice playerChoice;
 
-    private Gun gun;
-    private GameObject handguard;
+
+    public MeshRenderer gunMR;
+    public MeshRenderer handguardMR;
     private GameObject mesh;
     private SkinnedMeshRenderer mr;
 
@@ -44,11 +45,9 @@ public class DialogueManager : MonoBehaviour
     {
         //pressUp = InputSystem.actions.FindAction("up");
         //pressDown = InputSystem.actions.FindAction("down");
-        gun = gameObject.GetComponentInChildren<Gun>();
-        handguard = GameObject.Find("shotgun_handguard_001");
+
         mesh = GameObject.Find("player");
         mr = mesh.GetComponent<SkinnedMeshRenderer>();
-
         if (Instance == null)
         {
             Instance = this;
@@ -86,9 +85,22 @@ public class DialogueManager : MonoBehaviour
             currentKnot = currentMemory.GetKnot();
             story.ChoosePathString(currentKnot);
 
-            gun.gameObject.layer = 3;
-            handguard.gameObject.layer = 3;
+            handguardMR.enabled = false;
             mr.enabled = false;
+            gunMR.enabled = false;
+        }
+    }
+
+    void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<Memory>() != null)
+        {
+            currentMemory = null;
+            currentKnot = null;
+
+            handguardMR.enabled = true;
+            mr.enabled = true;
+            gunMR.enabled = true;
         }
     }
 
@@ -240,8 +252,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueJustPlayed = false;
 
-        gun.gameObject.layer = 0;
-        handguard.gameObject.layer = 0;
+        handguardMR.enabled = true;
         mr.enabled = true;
+        gunMR.enabled = true;
     }
 }
