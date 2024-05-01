@@ -33,6 +33,6 @@ public class DoorInteractor : MonoBehaviour
     {
         open.Play();
         yield return new WaitForSeconds(0.3f);
-        SceneManager.LoadScene("hsp");
+        SceneManager.LoadScene("TransitionRoom");
     }
 }

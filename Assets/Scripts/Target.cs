@@ -13,6 +13,11 @@ public class Target : MonoBehaviour
     public float damage;
     public PlayerHealth playerHealth;
 
+    public float speed = 5f; 
+    public float detectionRange = 10f;
+
+    private bool isPlayerInRange = false;
+
     void Start()
     {
         enemyAnimator = GetComponent<Animator>();
@@ -24,14 +29,9 @@ public class Target : MonoBehaviour
     }
      void Update()
     {
-        if (player != null)
-        {
-            //Calculate the direction from the enemy to the player
-            Vector3 directionToPlayer = player.position - transform.position;
+        CheckPlayerDistance();
+        MoveTowardsPlayer();
 
-            //Make the enemy always face the player (only rotate on the Y-axis)
-            transform.rotation = Quaternion.LookRotation(directionToPlayer);
-        }
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -62,5 +62,38 @@ public class Target : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         Destroy(gameObject);
     }
+    void CheckPlayerDistance()
+    {
+        // Calculate the distance from the current GameObject to the player
+        float distance = Vector3.Distance(transform.position, player.position);
 
+        // Check if the player is within the specified range
+        if (distance <= detectionRange)
+        {
+            isPlayerInRange = true;
+            enemyAnimator.SetTrigger("awake");
+        }
+        else
+        {
+            isPlayerInRange = false;
+        }
+
+        if (player != null)
+        {
+            //Calculate the direction from the enemy to the player
+            Vector3 directionToPlayer = player.position - transform.position;
+
+            //Make the enemy always face the player (only rotate on the Y-axis)
+            transform.rotation = Quaternion.LookRotation(directionToPlayer);
+        }
+    }
+
+    void MoveTowardsPlayer()
+    {
+        // Move the GameObject towards the player if they are within range
+        if (isPlayerInRange)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
+    }
 }
