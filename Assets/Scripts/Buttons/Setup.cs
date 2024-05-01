@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+
 public class Setup : MonoBehaviour
 {
-    public Dropdown inputDropdown;
+    public TMP_Dropdown inputDropdown;
 
-    private bool isGamepadEnabled = true;
     private bool isKeyboardMouseEnabled = true;
+    private bool isGamepadEnabled = true;
+
 
     void Start()
     {
@@ -16,17 +20,16 @@ public class Setup : MonoBehaviour
 
     private void ToggleInput(int choice)
     {
-        // Disable all inputs first
-        isGamepadEnabled = false;
         isKeyboardMouseEnabled = false;
+        isGamepadEnabled = false;
 
-        // Enable selected input
+
         switch (choice)
         {
-            case 0: // Keyboard and Mouse Only
+            case 0: //Keyboard and Mouse Only
                 isKeyboardMouseEnabled = true;
                 break;
-            case 1: // Gamepad Only
+            case 1: //Gamepad Only
                 isGamepadEnabled = true;
                 break;
         }
@@ -36,12 +39,12 @@ public class Setup : MonoBehaviour
     {
         if (isKeyboardMouseEnabled)
         {
-            // Code to handle keyboard and mouse input
+
         }
 
         if (isGamepadEnabled)
         {
-            // Code to handle gamepad input
+
         }
 
 
