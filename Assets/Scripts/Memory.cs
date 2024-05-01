@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Memory : MonoBehaviour
 {
-    public string n;
+    private string n;
     private string k;
 
     // Start is called before the first frame update
     void Awake()
     {
+        n = gameObject.name;
         SetKnot(n);
     }
 
@@ -20,7 +21,7 @@ public class Memory : MonoBehaviour
 
         if(name == "nurse")
         {
-            k = "talktonurse";
+            k = "enter";
         }
 
         if (name == "Slender")
@@ -29,6 +30,11 @@ public class Memory : MonoBehaviour
         }
 
         else if (name == "mom")
+        {
+            k = "tutorial";
+        }
+
+        else if (name == "dad")
         {
             k = "mummy";
         }
@@ -45,7 +51,7 @@ public class Memory : MonoBehaviour
 
         else if (name == "jessica2")
         {
-            k = "jbathroom";
+            k = "j_bathroom";
         }
 
         else
@@ -57,6 +63,5 @@ public class Memory : MonoBehaviour
     public string GetKnot()
     {
         return k;
-        Debug.Log("knot called");
     }
 }

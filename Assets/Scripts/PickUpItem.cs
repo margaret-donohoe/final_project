@@ -12,7 +12,7 @@ public class PickUpItem : MonoBehaviour
     public Vector3 shieldPos;
     //public GameObject poseParent;
     //private Vector3 pos;
-    //public GameObject pickUpItemCamera;
+    public GameObject pickUpItemCamera;
     private PlayerHealth h;
 
     private void Start()
