@@ -3697,6 +3697,10 @@ PrefabInstance:
       propertyPath: pickUp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6951189977207257117, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7714897585161569901, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
       propertyPath: m_Name
       value: baby
