@@ -9521,10 +9521,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 513964395642291922, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
-      propertyPath: open
-      value: 
-      objectReference: {fileID: 3469287838559451644}
     - target: {fileID: 1899040648596388646, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
       propertyPath: dialogueText
       value: 
@@ -9597,6 +9593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7237389593308041217, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
+      propertyPath: open
+      value: 
+      objectReference: {fileID: 3469287838559451644}
     - target: {fileID: 7714897585161569901, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
       propertyPath: m_Name
       value: baby

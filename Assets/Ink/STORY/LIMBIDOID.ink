@@ -12,8 +12,6 @@ You stand in a black void, { level ==1: holding a shotgun, }with nothing before 
  * {level == 3} [Open the stall.] -> levelThree
  * {level == 4} [Open the door.] -> levelFour
 
-
-
 === levelOne ===
 The room beyond the doorway appears to be a hospital nursery. It is empty, and so are all of the cradles within it, save for one which bleeds a sort of goopy darkness. You search for the patient informtion slip, but find that every line is redacted. The cradle's darkness leads to an office on the other side of the room.
 *[Enter the office.] -> enter
@@ -116,7 +114,7 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
 *[...]
 -"Besides, they're your favorite band, right??? I won't mind if you spend more time dancing than with me."
 *['...Alright.']->next
-*Leave. 
+*[Leave.]
 ->END
 ===next===
 "We're the next stop." You both stand, and feel the jolt of the rickety train screeching to a halt. 
@@ -144,8 +142,8 @@ Unsurprisingly, you step into a smelly car in an underground train. The only oth
         * [Open the stall.]->jbathroom
         
         === jbathroom ===
-        Jessica looks up, her face pallid and sickly. <i> "Where in the HELL have you been?!" </i> 
-        * ["Killing monsters."] ->monsters
+        Jessica looks up, her face pallid and sickly. "Where in the HELL have you been?!" 
+        * ["Killing monsters."]->monsters
         * ["You told me to go away the one time I saw you."]->truth
         - (monsters) "Right. What a compelling excuse. Do me a favor and piss off." She keels slightly, clearly very drunk. It's your funeral, not hers. She'll be fine. ->cont
         - (truth) She scowls drunkenly. "Fucking whatever. Just go, I'm sick of you and this place and the booze and my dress and..." ->cont
