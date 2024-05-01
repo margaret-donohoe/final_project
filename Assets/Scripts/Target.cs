@@ -72,6 +72,7 @@ public class Target : MonoBehaviour
         {
             isPlayerInRange = true;
             enemyAnimator.SetTrigger("awake");
+            enemyAnimator.SetTrigger("attack");
         }
         else
         {
