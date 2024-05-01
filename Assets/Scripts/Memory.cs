@@ -26,11 +26,6 @@ public class Memory : MonoBehaviour
 
         else if (name == "mom")
         {
-            k = "tutorial";
-        }
-
-        else if (name == "dad")
-        {
             k = "mummy";
         }
 
