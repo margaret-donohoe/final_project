@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Club.unity
     guid: 94ad9faa0a6874a22b3b963f722053bc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Outdoors.unity
     guid: 8a18ce728d9364290a80158fb94f57b1
   - enabled: 1
