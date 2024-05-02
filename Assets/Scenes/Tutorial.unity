@@ -9553,6 +9553,10 @@ PrefabInstance:
       propertyPath: choicesText.Array.data[2]
       value: 
       objectReference: {fileID: 426961534}
+    - target: {fileID: 2159296999999727203, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0624998
+      objectReference: {fileID: 0}
     - target: {fileID: 2940892370837520419, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
       propertyPath: open
       value: 
@@ -9633,6 +9637,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 451600fcb6f0b43689e222e0beceea17, type: 2}
+    - target: {fileID: 8517977976737501498, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0624998
+      objectReference: {fileID: 0}
     - target: {fileID: 8691069548907806670, guid: ddaf538ed02cd4bbc8b181ce44e6662f, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
@@ -13659,6 +13667,7 @@ MonoBehaviour:
   playerHealth: {fileID: 640147461}
   speed: 5
   detectionRange: 10
+  g6: {fileID: 8300000, guid: 916f75af5608a466bb3a78abbc734245, type: 3}
 --- !u!65 &6973161129168692453
 BoxCollider:
   m_ObjectHideFlags: 0

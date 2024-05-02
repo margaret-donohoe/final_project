@@ -17,6 +17,7 @@ public class Target : MonoBehaviour
     public float detectionRange = 10f;
 
     private bool isPlayerInRange = false;
+    public AudioClip g6;
 
     void Start()
     {
@@ -70,6 +71,11 @@ public class Target : MonoBehaviour
         // Check if the player is within the specified range
         if (distance <= detectionRange)
         {
+            if (gameObject.name == "discoboss1")
+            {
+                GameObject mc = GameObject.Find("MainCamera");
+                mc.GetComponent<AudioSource>().clip = g6;
+            }
             isPlayerInRange = true;
             enemyAnimator.SetTrigger("awake");
             enemyAnimator.SetTrigger("attack");
