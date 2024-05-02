@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Target : MonoBehaviour
 {
@@ -62,6 +63,10 @@ public class Target : MonoBehaviour
     {
         yield return new WaitForSeconds(3.5f);
         Destroy(gameObject);
+        if(gameObject.name == "discoboss1")
+        {
+            SceneManager.LoadScene("Win");
+        }
     }
     void CheckPlayerDistance()
     {
@@ -71,10 +76,11 @@ public class Target : MonoBehaviour
         // Check if the player is within the specified range
         if (distance <= detectionRange)
         {
-            if (gameObject.name == "discoboss1")
+            GameObject mc = GameObject.Find("MainCamera");
+            if (gameObject.name == "discoboss1" && mc.GetComponent<AudioSource>().clip != g6)
             {
-                GameObject mc = GameObject.Find("MainCamera");
                 mc.GetComponent<AudioSource>().clip = g6;
+                mc.GetComponent<AudioSource>().Play();
             }
             isPlayerInRange = true;
             enemyAnimator.SetTrigger("awake");
