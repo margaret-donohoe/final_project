@@ -6,6 +6,8 @@ public class QuitGame : MonoBehaviour
 {
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         // Get the Button component and add a listener to it
         Button btn = GetComponent<Button>();
         btn.onClick.AddListener(QuittheGame);
@@ -13,12 +15,6 @@ public class QuitGame : MonoBehaviour
 
     void QuittheGame()
     {
-        // Quit the application
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; // For use in the editor
-        Debug.Log("Quitting Application");
-#else
-        Application.Quit(); // For use in build
-#endif
+        Application.Quit();
     }
 }

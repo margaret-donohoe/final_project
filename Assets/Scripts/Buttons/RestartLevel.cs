@@ -9,6 +9,8 @@ public class RestartLevel : MonoBehaviour
     public Button replayBtn;
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         replayBtn.onClick.AddListener(replaygame);
     }
 

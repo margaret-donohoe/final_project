@@ -9,6 +9,7 @@ public class Volume : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetFloat("volume", 1);
         // Initialize slider value to the current volume
         volumeSlider.value = AudioListener.volume;
 
