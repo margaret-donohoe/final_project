@@ -41,7 +41,7 @@ public class Memory : MonoBehaviour
 
         else if (name == "jessica2")
         {
-            k = "j_bathroom";
+            k = "jbathroom";
         }
 
         else
