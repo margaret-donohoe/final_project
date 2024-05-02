@@ -21,6 +21,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
 
         handguard = GameObject.Find("shotgun_handguard_001");
